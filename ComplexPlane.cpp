@@ -67,8 +67,8 @@ void ComplexPlane::zoomIn()
 	Vector2f temp;
 	temp.x = BASE_WIDTH * pow(BASE_ZOOM, m_zoomCount);
 	temp.y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
-	m_plane_size.x = tempX;
-	m_plane_size.y = tempY;
+	m_plane_size.x = temp.x;
+	m_plane_size.y = temp.y;
 	m_state = State::CALCULATING;
 
 }
@@ -79,8 +79,8 @@ void ComplexPlane::zoomOut()
 	Vector2f temp;
 	temp.x = BASE_WIDTH * pow(BASE_ZOOM, m_zoomCount);
 	temp.y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
-	m_plane_size.x = tempX;
-	m_plane_size.y = tempY;
+	m_plane_size.x = temp.x;
+	m_plane_size.y = temp.y;
 	m_state = State::CALCULATING;
 }
 
