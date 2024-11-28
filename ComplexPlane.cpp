@@ -64,8 +64,9 @@ void ComplexPlane::updateRender()
 void ComplexPlane::zoomIn()
 {
 	m_zoomCount++;
-	int tempX = BASE_WIDTH * pow(BASE_ZOOM, m_zoomCount);
-	int tempY = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
+	Vector2f temp;
+	temp.x = BASE_WIDTH * pow(BASE_ZOOM, m_zoomCount);
+	temp.y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
 	m_plane_size.x = tempX;
 	m_plane_size.y = tempY;
 	m_state = State::CALCULATING;
@@ -75,8 +76,9 @@ void ComplexPlane::zoomIn()
 void ComplexPlane::zoomOut()
 {
 	m_zoomCount--;
-	int tempX = BASE_WIDTH * pow(BASE_ZOOM, m_zoomCount);
-	int tempY = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
+	Vector2f temp;
+	temp.x = BASE_WIDTH * pow(BASE_ZOOM, m_zoomCount);
+	temp.y = BASE_HEIGHT * m_aspectRatio * (pow(BASE_ZOOM, m_zoomCount));
 	m_plane_size.x = tempX;
 	m_plane_size.y = tempY;
 	m_state = State::CALCULATING;
@@ -85,7 +87,7 @@ void ComplexPlane::zoomOut()
 void ComplexPlane::setCenter(Vector2i mousePixel)
 {
 	m_plane_center = mapPixelToCoords(mousePixel);
-	m_state = CALCULATING;
+	m_state = State::CALCULATING;
 }
 
 void ComplexPlane::setMouseLocation(Vector2i mousePixel)
